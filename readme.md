@@ -1,24 +1,37 @@
-# yougou
+# 优购 Web 商城
 
-## Project setup
+### 使用技术栈
+
+> vue 全家桶(2x),
+> vant,
+> axios,esm模块化,jwt,
+
+## 1-安装依赖
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 2-运行 code
+
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### 打包 code
+
 ```
 npm run build
 ```
 
-### Lints and fixes files
-```
-npm run lint
+### 克隆
+
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```
+
+### 仓库地址
+
+```
+https://github.com/Davensi/yougo.git
+```
