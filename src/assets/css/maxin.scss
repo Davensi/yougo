@@ -1,0 +1,72 @@
+// 水平垂直居中
+.flex-c-c {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// 水平居中
+.flex-d-c {
+  display: flex;
+
+  justify-content: center;
+}
+
+// 垂直 居中
+.flex-c-d {
+  display: flex;
+  align-items: center;
+}
+
+// 2行文本  居中
+.text-2row {
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+// 单行文本 隐藏显示 ...
+.text-1row {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+//  定位实现 水平垂直居中
+.absolute-c-c {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+//  定位实现 垂直居中
+.absolute-d-c {
+  position: absolute;
+  top: 50%;
+  margin-top: -50%;
+}
+
+//  定位实现 水平居中·
+.absolute-c-d {
+  position: absolute;
+
+  left: 50%;
+  margin-left: 50%;
+}
+// 清除 浮动
+.none-float {
+  overflow: hidden;
+}
+// 伪类清除 浮动
+.clearfix ::before {
+  content: "";
+  height: 0;
+  line-height: 0;
+  display: block;
+  clear: both;
+  visibility: hidden;
+}
