@@ -3,7 +3,7 @@ import Vue from 'vue';
 
 Vue.use(axios)
 const instance = axios.create({
-    baseURL: 'http://localhost:4000',
+    baseURL: 'http://api.w0824.com',
     timeout: 6000,
 
 });

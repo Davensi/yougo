@@ -4,9 +4,12 @@ import {
     Tabbar, TabbarItem, Button, Card, SubmitBar, Checkbox,
     CheckboxGroup, Radio, RadioGroup, Stepper,NavBar,GoodsAction,
     GoodsActionButton,GoodsActionIcon,Field,Search  ,Skeleton,Icon ,
-    Swipe,SwipeItem
+    Swipe,SwipeItem,Grid,GridItem
 } from 'vant';
 Vue.use(Swipe);
+
+Vue.use(Grid);
+Vue.use(GridItem);
 Vue.use(SwipeItem)
 Vue.use(Icon );
 Vue.use(Field);

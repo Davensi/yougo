@@ -9,6 +9,7 @@
     >
     </van-nav-bar>
     <router-view />
+   
   </div>
 </template>
 <script>
@@ -16,7 +17,7 @@ export default {
   data() {
     return {
       showNavBar: false,
-        title:'',
+      title: "",
     };
   },
   watch: {
@@ -37,9 +38,16 @@ export default {
 </script>
 
 <style lang="scss">
+ 
+@import "css/rem.scss";
 #app {
   min-width: 320px;
   max-width: 750px;
   margin: 0 auto;
+  width: 100vw;
 }
+body {
+  // background: #7c7c7c;
+}
+ 
 </style>

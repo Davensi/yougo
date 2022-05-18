@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="content">
     <van-skeleton title :row="7" :loading="false"> 
     <router-view />
     <van-tabbar v-model="active">
@@ -12,6 +12,7 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
@@ -38,4 +39,7 @@ export default {
 .van-tabbar {
   position: fixed;
 }
+// .content{
+//  width: 100vw;
+// }
 </style>
