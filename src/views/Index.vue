@@ -1,12 +1,13 @@
 <template>
   <div>
+    <van-skeleton title :row="7" :loading="false"> 
     <router-view />
-   
     <van-tabbar v-model="active">
       <van-tabbar-item icon="home-o" to="/home/index">HOME</van-tabbar-item>
       <van-tabbar-item icon="cart-o" to="/home/shopcar">购物车</van-tabbar-item>
       <van-tabbar-item icon="manager-o" to="/home/user">我的</van-tabbar-item>
     </van-tabbar>
+    </van-skeleton>
   </div>
 </template>
 
@@ -34,4 +35,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.van-tabbar {
+  position: fixed;
+}
 </style>

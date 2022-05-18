@@ -2,12 +2,12 @@
   <div id="app">
     <van-nav-bar
       v-show="showNavBar"
-      title="标题"
-      left-text="返回"
-      right-text="按钮"
+      :title="title"
+      left-text=""
       left-arrow
       @click-left="$router.back()"
-    />
+    >
+    </van-nav-bar>
     <router-view />
   </div>
 </template>
@@ -16,6 +16,7 @@ export default {
   data() {
     return {
       showNavBar: false,
+        title:'',
     };
   },
   watch: {
@@ -24,8 +25,9 @@ export default {
       handler: function (newR, lodR) {
         console.log(newR, "讲台");
         const { title, showNavBar } = newR.meta;
-        // 
+        //
         document.title = title;
+        this.title = title;
         this.showNavBar = showNavBar;
       },
       immediate: true,

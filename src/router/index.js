@@ -6,6 +6,7 @@ const ShopCar = () => import('../views/shopcar/ShopCar.vue');
 const User = () => import('../views/user/User.vue');
 const Index = () => import('../views/Index.vue');
 const Goodsdetail = () => import('../views/goods/GoodsDetail.vue');
+const Search = () => import('../views/search/Search.vue');
 
 Vue.use(VueRouter)
 
@@ -25,6 +26,16 @@ const routes = [
     }
   },
   {
+    path: "/search",
+    // Goodsdetail
+    component: Search,
+    meta: {
+      title: "xxx商品",
+      showNavBar: false,
+
+    }
+  },
+  {
     path: "/home",
     component: Index,
     children: [
@@ -34,7 +45,7 @@ const routes = [
         meta: {
           title: "我是首页 ",
           index: 0,
-          showNavBar: true,
+          showNavBar: false,
 
         }
       },
