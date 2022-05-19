@@ -34,7 +34,7 @@
       </van-grid-item>
     </van-grid>
    <ToTop :scroll="100">
-     <img src="https://t8.baidu.com/it/u=588276543,27586274&fm=199&app=68&size=f242,150&n=0&g=0n&f=JPEG&fmt=auto?s=EF84C4000E7F3D8E621754C8030090B2&sec=1652979600&t=532b5eb83aedc4badc6835e49e24ea1b" alt="">
+     <img width="50px" src="https://img2.baidu.com/it/u=623241669,678581562&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500" alt="">
    </ToTop>
     <!-- 商品列表 -->
     <GoodsListItem :goods="goods" />
@@ -84,7 +84,7 @@ export default {
   created() {
     this._askSwipe();
     this._askGoods();
-    console.log("开始调用", this.img);
+    // console.log("开始调用", this.img);
   },
 
   components: {
@@ -115,6 +115,7 @@ export default {
   height: 70%;
   .text {
     margin-top: 6px;
+    font-size: 0.5rem;
   }
 
   img {

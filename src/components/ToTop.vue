@@ -29,11 +29,11 @@ export default {
     },
     scrollCallBack() {
       if (window.pageYOffset >= this.scroll) {
-        console.log("那边");
+        // console.log("那边");
         this.isShow = true;
       } else {
         this.isShow = false;
-        console.log("这边", this.scroll);
+        // console.log("这边", this.scroll);
       }
     },
   },
@@ -57,8 +57,9 @@ export default {
   justify-content: center;
   flex-wrap: wrap;
   border-radius: 15px;
-  width: 100px;
-  height: 100px;
+  
   background-color: #ccc;
+  z-index: 80;
 }
+
 </style>

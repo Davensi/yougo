@@ -1,11 +1,10 @@
 import axios from 'axios';
 import Vue from 'vue';
 
-Vue.use(axios)
+ 
 const instance = axios.create({
     baseURL: 'http://api.w0824.com',
     timeout: 6000,
-
 });
 
 // 添加响应拦截器
@@ -28,12 +27,12 @@ instance.interceptors.request.use(
     // 发送 请求 前的回调 可以设置 响应头和一下操作
     function (config) {
         // config.request.status = 200;
-        // console.log("请求拦截器");
+         
 
         // 设置超时时间
         config.timeout = 10000;
         // 开启loading
-        config.data = `{a:1}`
+      
         return config;
     },
     // 当 错误 时的 回调

@@ -7,6 +7,7 @@ const User = () => import('../views/user/User.vue');
 const Index = () => import('../views/Index.vue');
 const Goodsdetail = () => import('../views/goods/GoodsDetail.vue');
 const Search = () => import('../views/search/Search.vue');
+const SearchList = () => import('../views/search/children/SearchList');
 
 Vue.use(VueRouter)
 
@@ -27,14 +28,27 @@ const routes = [
   },
   {
     path: "/search",
-    // Goodsdetail
+    
     component: Search,
     meta: {
-      title: "xxx商品",
-      showNavBar: false,
+      title: "搜索",
+      historyShow: true,
 
-    }
+    },
+   
+    children: [
+      {
+        path: "list",
+        component: SearchList,
+        meta: {
+          historyShow: true,
+          title: "为您找到",
+        },
+      },
+
+    ],
   },
+
   {
     path: "/home",
     component: Index,

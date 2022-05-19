@@ -24,7 +24,7 @@ export default {
     // 监听路由
     $route: {
       handler: function (newR, lodR) {
-        console.log(newR, "讲台");
+        // console.log(newR, "讲台");
         const { title, showNavBar } = newR.meta;
         //
         document.title = title;
@@ -49,5 +49,7 @@ export default {
 body {
   // background: #7c7c7c;
 }
- 
+ html {
+  scroll-behavior: smooth;
+}
 </style>

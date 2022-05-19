@@ -136,6 +136,7 @@ li {
   transform: scale(0.9);
 }
 .goods-img-content img {
+  max-width: 120px;
   border-radius: 10px;
   width: rem(188);
 }
