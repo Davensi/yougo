@@ -26,19 +26,21 @@
     <Swipemin :img="swipe" />
     <!-- 九宫格 -->
     <van-grid :gutter="4">
-      <van-grid-item v-for="item in img" :key="item.img">
+      <van-grid-item v-for="item in img" :key="item.img" :to="item.to">
         <div class="item">
           <img :src="item.img" />
           <div class="text">{{ item.text }}</div>
         </div>
       </van-grid-item>
     </van-grid>
-   <ToTop :scroll="100">
-     <img width="50px" src="https://img2.baidu.com/it/u=623241669,678581562&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500" alt="">
-   </ToTop>
+    <ToTop :scroll="100">
+      <img
+        width="50px"
+        src="https://img2.baidu.com/it/u=623241669,678581562&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"
+        alt=""
+      />
+    </ToTop>
     <!-- 商品列表 -->
-    <GoodsListItem :goods="goods" />
-    <GoodsListItem :goods="goods" />
     <GoodsListItem :goods="goods" />
   </div>
 </template>
@@ -79,6 +81,9 @@ export default {
       const { message } = await askGoods(this.page, this.limit);
       this.goods = message;
       // console.log(message, "res33");
+    },
+    GoodDetail({ e, id }) {
+      console.log(id);
     },
   },
   created() {

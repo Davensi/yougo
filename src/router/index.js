@@ -5,7 +5,8 @@ const Home = () => import('../views/home/Home.vue');
 const ShopCar = () => import('../views/shopcar/ShopCar.vue');
 const User = () => import('../views/user/User.vue');
 const Index = () => import('../views/Index.vue');
-const Goodsdetail = () => import('../views/goods/GoodsDetail.vue');
+const GoodsDetail = () => import('../views/goods/GoodsDetail.vue');
+const GoodList = () => import('../views/goods/GoodsList.vue');
 const Search = () => import('../views/search/Search.vue');
 const SearchList = () => import('../views/search/children/SearchList');
 
@@ -16,26 +17,38 @@ const routes = [
     path: "/",
     redirect: "/home/index",
   },
+  // 商品详情
   {
-    path: "/goodsdetail",
+    path: "/goodsdetail/:id",
     // Goodsdetail
-    component: Goodsdetail,
+    component: GoodsDetail,
     meta: {
       title: "xxx商品",
       showNavBar: true,
 
     }
   },
+  // 商品列表页
+  {
+    path: "/goodlist",
+   
+    component: GoodList,
+    meta: {
+      title: "欢迎抢购",
+      showNavBar: true,
+
+    }
+  },
   {
     path: "/search",
-    
+
     component: Search,
     meta: {
       title: "搜索",
       historyShow: true,
 
     },
-   
+
     children: [
       {
         path: "list",
@@ -89,6 +102,21 @@ const routes = [
 
 const router = new VueRouter({
   routes
+})
+NProgress.configure({
+  showSpinner: false
+});
+
+// 前守卫
+router.beforeEach((to, from, next) => {
+  NProgress.start();
+  next();
+});
+
+
+// 后守卫
+router.afterEach((to, from) => {
+  NProgress.done();
 })
 
 export default router

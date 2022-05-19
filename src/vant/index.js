@@ -5,8 +5,11 @@ import {
     CheckboxGroup, Radio, RadioGroup, Stepper,NavBar,GoodsAction,
     GoodsActionButton,GoodsActionIcon,Field,Search  ,Skeleton,Icon ,
     Swipe,SwipeItem,Grid,GridItem,Cell,CellGroup,Overlay,Popover,Dialog 
+    ,List,PullRefresh
 } from 'vant';
+Vue.use(PullRefresh);
 Vue.use(Dialog);
+Vue.use(List);
 Vue.use(Overlay);
 Vue.use(Popover);
 Vue.use(Swipe);

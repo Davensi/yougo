@@ -1,27 +1,7 @@
 <template>
   <div>
     <ul class="item">
-      <!-- <li class="header">
-        <div class="goods-img-content">
-          <img
-            style="width: 120px"
-            src="https://img.alicdn.com/bao/uploaded/i2/858355019/TB2Ee9ylMJlpuFjSspjXXcT.pXa_!!858355019.png_200x200q90.jpg_.webp"
-            alt=""
-          />
-        </div>
-        <div class="goods-text">
-          <i class="iconfont icon-ziying1"></i>
-          <span class="text">
-            六寸手绘创意陶瓷家用小盘子可爱清新吐骨碟子糖果蛋糕点</span
-          >
-        </div>
-        <div class="goods-price-wrap">
-          <div class="goods-price goods-buy">¥<a>13.9</a></div>
-          <a id="acolor" href="">9人购买</a>
-        </div>
-      </li> -->
-
-      <li class="header" v-for="item in goods" :key="item.id">
+      <li class="header" v-for="item in goods" :key="item.id + Math.random()" @click="toDetail($event,item.id)">
         <div class="goods-img-content">
           <img :src="item.img_url" alt="" />
         </div>
@@ -35,35 +15,44 @@
           </div>
           <a id="acolor" href="">{{ item.market_price }}人购买</a>
         </div>
+
+        <div v-if="bottom">
+          <slot name="bottom">
+            <div class="goods-hot-wrap">
+              <div class="hot-price hot-buy">
+                <a>原价{{ item.market_price }}</a>
+              </div>
+              <a id="hot-acolor" href="">剩余:{{ item.stock_quantity }}</a>
+            </div>
+          </slot>
+        </div>
       </li>
     </ul>
-    <!--
-
-      add_time: (...)
-buy: (...)
-category_id: (...)
-channel_id: (...)
-click: (...)
-content: (...)
-id: (...)
-img_url: (...)
-likes: (...)
-market_price: (...)
-sell_price: (...)
-title: (...)
-user_name: (...)
-zhaiyao: (...)
-      -->
+ 
   </div>
 </template>
 
 <script>
+ 
+
+ 
+
 export default {
   props: {
     goods: {
       type: Array,
     },
+    bottom: {
+      type: Boolean,
+      default: false,
+    },
   },
+  methods:{
+    toDetail(e,id){
+      // console.log('跑详情',e,id);
+     this.$router.push({path:`/goodsdetail/${id}`, })
+    }
+  }
 };
 </script>
 
@@ -74,18 +63,16 @@ li {
 }
 
 .item {
-  
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 0px 20px;
   width: rem(704);
-   box-sizing: border-box;
+  box-sizing: border-box;
   background: #f7f6f6;
 }
 
 .header {
- 
   margin-top: 20px;
   width: 48%;
   height: 250px;
@@ -100,6 +87,10 @@ li {
 }
 
 #acolor {
+  color: #999999;
+  font-size: 12px;
+}
+#hot-acolor {
   color: #999999;
   font-size: 12px;
 }
@@ -170,5 +161,18 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-between;
+}
+.goods-hot-wrap {
+  display: flex;
+  width: 5.7rem;
+  overflow: hidden;
+
+  justify-content: space-between;
+}
+.hot-price {
+  font-size: 14px;
+  color: #e1251b;
+  font-weight: 700;
+  height: 22px;
 }
 </style>
