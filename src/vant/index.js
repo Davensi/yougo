@@ -5,8 +5,12 @@ import {
     CheckboxGroup, Radio, RadioGroup, Stepper,NavBar,GoodsAction,
     GoodsActionButton,GoodsActionIcon,Field,Search  ,Skeleton,Icon ,
     Swipe,SwipeItem,Grid,GridItem,Cell,CellGroup,Overlay,Popover,Dialog 
-    ,List,PullRefresh,Lazyload,Image as VanImage,ImagePreview ,Divider
+    ,List,PullRefresh,Lazyload,Image as VanImage,ImagePreview ,Divider,
+    DropdownMenu,DropdownItem
 } from 'vant';
+
+Vue.use(DropdownMenu);
+Vue.use(DropdownItem);
 Vue.use(Divider);
 Vue.use(ImagePreview);
 Vue.use(VanImage);

@@ -59,12 +59,13 @@ export default {
       const { message } = await askGoodsDetailImg(this.id);
       this.swipe = message;
       this.img = message.map(({ src }) => src);
-      // console.log(this.img, "img");
+      
     },
     async _askGoodsDetail() {
       const { message } = await askGoodsDetail(this.id);
       this.detali = message;
-      console.log(this.detali, "详情");
+      document.title = this.detali.title;
+      // console.log(this.detali, "详情");
     },
     imgDetail(src) {
       // console.log("77", src);
@@ -81,6 +82,7 @@ export default {
 <style lang="scss" scoped>
 .van-goods-action {
   position: fixed;
+  right: 0;
   bottom: 0;
   left: 0;
 }
@@ -95,6 +97,8 @@ export default {
   margin-top: 10px;
   padding: 0px 20px;
   box-sizing: border-box;
+  width: 100vw;
+  overflow: hidden;
   .title {
     display: flex;
     font-size: 16px;
@@ -104,7 +108,7 @@ export default {
       color: red;
       font-weight: 600;
     }
-    .price-ioc{
+    .price-ioc {
       color: rgb(183, 19, 19);
     }
   }
@@ -118,6 +122,7 @@ export default {
     border-radius: 5px;
     margin: 12px 0px;
     .text {
+      padding: 0px 4px;
       font-size: 14px;
       color: #ff6900;
       border-radius: 5px;
@@ -138,14 +143,17 @@ export default {
     font-size: 0.8rem;
   }
   .datail-text {
+    text-align: center;
     font-size: 0.6rem;
     color: rgb(0, 0, 0);
     width: 320px;
   }
-  .tbody {
-    width: 100vw;
-    img {
-      // width: 100%;
+
+  .datail-content {
+    width: 90vw;
+    ::v-deep img {
+      width: 100%;
+      height: 100%;
     }
   }
 }
