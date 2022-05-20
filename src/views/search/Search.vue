@@ -45,7 +45,6 @@ export default {
     // 关键字存入 vue 中 跳转 路由
     search() {
       const keyWord = !this.value ? "牛掰" : this.value;
-
       // 传入 关键字
       this.$store.commit("pushWord", keyWord);
       // 增加历史记录
@@ -54,23 +53,28 @@ export default {
       this.$store.commit("historyShow", this.$store.state.historyShow);
       //  再次搜索时再次 刷新页面
       if (this.$route.fullPath == "/search/list") {
-        this.$store.commit("historyShow", true);
-        this.$router.back(0);
-        console.log("让你显示11");
+        location.reload();
       } else {
         // 当是 有在搜索 跳到搜索页
+        this.$store.commit("historyShow", true);
+
         this.$router.push("/search/list");
       }
     },
     back() {
       this.$router.back();
+      // 当你是在搜索列表时 就 让历史显示
       if (this.$route.fullPath == "/search/list") {
-        console.log("让你显示");
         this.$store.commit("historyShow", true);
       }
     },
   },
-  created() {},
+  created() {
+    // 接收刷新回的值
+    this.$bus.$on("getWord", (k) => {
+      this.value = k;
+    });
+  },
   components: {
     SearchHisory,
     SearchList,

@@ -6,7 +6,8 @@ import  './vant'
 import  './assets/css/base.css'
 import  './assets/js/'
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+Vue.prototype.$bus = new Vue();
 
 new Vue({
   router,

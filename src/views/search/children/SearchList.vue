@@ -38,6 +38,11 @@ export default {
   },
   created() {
     this._getWordGoods();
+    if (this.$route.fullPath == "/search/list") {
+      // this.value = this.$store.state.searchWord;
+      this.$bus.$emit("getWord", this.$store.state.searchWord);
+      console.log("应该的", this.$bus);
+    }
     this.$store.commit("historyShow", false);
   },
   beforeRouteUpdate(to, from, next) {
