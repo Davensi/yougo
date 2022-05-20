@@ -8,10 +8,12 @@ export function askGoodsList(page = 1, limit = 4) {
 // 详情
 export function askGoodsDetail(id = 88) {
     // /api/getgoodsinfo/87
-    return instance.get(` /api/getgoodsinfo/${id}`)
+    // console.log(id,`/api/getgoodsinfo/${id}`);
+    return instance.get(`/api/getgoodsinfo/${id}/`)
 }
 // 轮播图
 export function askGoodsDetailImg(id = 88) {
     // /api/getthumbimages/87
-    return instance.get(`/api/getthumbimages/${id}`)
+    // console.log(id,`/api/getgoodsinfo/${id}`);
+    return instance.get(`/api/getthumbimages/${id}/`)
 }
