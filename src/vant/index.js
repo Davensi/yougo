@@ -2,13 +2,16 @@ import Vue from 'vue';
 import 'vant/lib/button/style';
 import {
     Tabbar, TabbarItem, Button, Card, SubmitBar, Checkbox,
-    CheckboxGroup, Radio, RadioGroup, Stepper,NavBar,GoodsAction,
-    GoodsActionButton,GoodsActionIcon,Field,Search  ,Skeleton,Icon ,
-    Swipe,SwipeItem,Grid,GridItem,Cell,CellGroup,Overlay,Popover,Dialog 
-    ,List,PullRefresh,Lazyload,Image as VanImage,ImagePreview ,Divider,
-    DropdownMenu,DropdownItem
+    CheckboxGroup, Radio, RadioGroup, Stepper, NavBar, GoodsAction,
+    GoodsActionButton, GoodsActionIcon, Field, Search, Skeleton, Icon,
+    Swipe, SwipeItem, Grid, GridItem, Cell, CellGroup, Overlay, Popover, Dialog
+    , List, PullRefresh, Lazyload, Image as VanImage, ImagePreview, Divider,
+    DropdownMenu, DropdownItem, Sku, CouponCell,CouponList,SwipeCell 
 } from 'vant';
-
+Vue.use(SwipeCell );
+Vue.use(CouponCell);
+Vue.use(CouponList);
+Vue.use(Sku);
 Vue.use(DropdownMenu);
 Vue.use(DropdownItem);
 Vue.use(Divider);
@@ -26,10 +29,10 @@ Vue.use(CellGroup);
 Vue.use(Grid);
 Vue.use(GridItem);
 Vue.use(SwipeItem)
-Vue.use(Icon );
+Vue.use(Icon);
 Vue.use(Field);
-Vue.use(Skeleton );
-Vue.use(Search  );
+Vue.use(Skeleton);
+Vue.use(Search);
 Vue.use(Button)
 Vue.use(NavBar)
 Vue.use(Card)

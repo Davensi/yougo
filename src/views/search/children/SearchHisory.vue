@@ -27,8 +27,8 @@
       <template #title>搜索发现</template>
       <template #label>
         <div id="find">
-          <p class="text">111</p>
-          <p class="text">111</p>
+          <p class="text">苹果发布 15</p>
+          <p class="text">有大病</p>
           <p class="text">11111231</p>
           <p class="text">1112311</p>
         </div>

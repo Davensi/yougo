@@ -11,7 +11,7 @@ import img8 from '../../assets/img/8.png';
 export default [
     { img: img1, text: "乐淘超市",to:"/goodlist" ,},
     { img: img2, text: "新闻列表",to:"/goodlist",  },
-    { img: img3, text: "乐淘生鲜" ,to:"/goodlist",},
+    { img: img3, text: "优购生鲜" ,to:"/goodlist",},
     { img: img4, text: "生活缴费" ,to:"/goodlist",},
     { img: img5, text: "领津贴" ,to:"/goodlist",},
     { img: img6, text: "plus会员",to:"/goodlist", },
