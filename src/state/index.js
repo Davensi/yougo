@@ -4,6 +4,7 @@ import createPersistedState from "vuex-persistedstate";
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
+    strict: true,
     state: {
         searchWordHistory: [
 
@@ -12,7 +13,11 @@ const store = new Vuex.Store({
         cpn: "SearchHisory",
         historyShow: true,
         goods: [],
-        checkAll: false,
+        checkAll: true,
+        token: '',
+        userInfo: '',
+        siteDfault: 0,
+
     },
     mutations: {
         // 添加关键字
@@ -77,6 +82,24 @@ const store = new Vuex.Store({
         // 删除一个商品  splice
         delGoodsItem(state, index) {
             state.goods.splice(index, 1)
+        },
+        // 设置 token
+        setToken(state, value) {
+            state.token = value;
+        },
+        // 登录设置 用户描述与 token
+        setUserInfo(state, value) {
+            state.userInfo = value;
+        },
+        // 退出等路 清除 所有有关信息
+        clearUserInfo(state) {
+            console.log('清除');
+            state.token = '';
+            state.userInfo = '';
+        },
+        setHarderImg(state, src) {
+            state.userInfo.avatar = src;
+            console.log('该变');
         }
 
     },
@@ -86,7 +109,7 @@ const store = new Vuex.Store({
             state.goods.forEach((item, i) => {
                 nmus[i] = item.selectedNum;
             });
-            console.log(nmus);
+
             return nmus;
         },
         // 展示的所有 商品选中状态
@@ -101,7 +124,7 @@ const store = new Vuex.Store({
         },
         ownCheckAll(state) {
             const ALL = state.checkAll;
-            console.log(ALL, 'ALL');
+
             return { ALL };
         },
         priceAll(state) {
@@ -126,7 +149,22 @@ const store = new Vuex.Store({
             inNmu = inNmu / 100;
 
             return inNmu;
-        }
+        },
+        // 购物为空提示
+        shoWempty(state) {
+
+        },
+        // 计算 购物车 中商品的数量
+        ownCheckNum(state) {
+
+            if (!state.goods.length) {
+                return '空';
+            } else {
+                return state.goods.length;
+            }
+
+
+        },
     },
     actions: {},
     modules: {},

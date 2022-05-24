@@ -6,8 +6,21 @@ import {
     GoodsActionButton, GoodsActionIcon, Field, Search, Skeleton, Icon,
     Swipe, SwipeItem, Grid, GridItem, Cell, CellGroup, Overlay, Popover, Dialog
     , List, PullRefresh, Lazyload, Image as VanImage, ImagePreview, Divider,
-    DropdownMenu, DropdownItem, Sku, CouponCell,CouponList,SwipeCell 
+    DropdownMenu, DropdownItem, Sku, CouponCell,CouponList,SwipeCell ,Empty
+    ,Uploader,Form,AddressList,AddressEdit,Cascader,Area,Notify,
 } from 'vant';
+ 
+
+// 全局注册
+Vue.use(Notify)
+Vue.use(Area);
+Vue.use(AddressList);
+Vue.use(Cascader);
+Vue.use(AddressEdit);
+Vue.use(Form);
+Vue.use(Field);
+Vue.use(Uploader);
+Vue.use(Empty);
 Vue.use(SwipeCell );
 Vue.use(CouponCell);
 Vue.use(CouponList);
