@@ -1,9 +1,17 @@
 <template>
   <div>
-    <van-cell title="登录享优惠" is-link value="去登录" to="index" />
+    <van-cell
+      v-if="!$store.state.token"
+      title="登录享优惠"
+      is-link
+      value="去登录"
+      to="/login"
+    />
 
-     
-    <van-swipe-cell v-for="(item,index) in $store.state.goods" :key="item.goodsId">
+    <van-swipe-cell
+      v-for="(item, index) in $store.state.goods"
+      :key="item.goodsId"
+    >
       <!-- 商品卡片 -->
       <van-card
         :num="item.selectedNum"
@@ -15,11 +23,17 @@
       >
         <!-- 选中  -->
         <template #tag>
-          <van-checkbox v-model="$store.getters.ownCheck[index]" @click="checkChange(index,$store.getters.ownCheck[index])"></van-checkbox>
+          <van-checkbox
+            v-model="$store.getters.ownCheck[index]"
+            @click="checkChange(index, $store.getters.ownCheck[index])"
+          ></van-checkbox>
         </template>
         <!-- 计算数量 -->
         <template #tags>
-          <van-stepper v-model="$store.getters.ownGoodsNum[index]" @change="numChange(index,$store.getters.ownGoodsNum[index])" />
+          <van-stepper
+            v-model="$store.getters.ownGoodsNum[index]"
+            @change="numChange(index, $store.getters.ownGoodsNum[index])"
+          />
         </template>
         <!-- 删除按钮 -->
         <template #footer>
@@ -42,10 +56,25 @@
       </template>
     </van-swipe-cell>
 
-    <van-submit-bar :price="$store.getters.ownPrice * 100" button-text="提交订单" @submit="onSubmit">
-      <van-checkbox v-model="$store.getters.ownCheckAll['ALL']" @click="checkAll($store.getters.ownCheckAll)">全选</van-checkbox>
+    <van-empty
+      v-if="$store.getters.ownCheckNum == '空' ? true : false"
+      class="custom-image"
+      :image="carImg"
+      description="购物车为空,快去挑选商品吧。"
+    />
+
+    <van-submit-bar
+      v-if="$store.state.goods.length == 0 ? false : true"
+      :price="$store.getters.ownPrice * 100"
+      button-text="提交订单"
+      @submit="onSubmit"
+    >
+      <van-checkbox
+        v-model="$store.getters.ownCheckAll['ALL']"
+        @click="checkAll($store.getters.ownCheckAll)"
+        >全选</van-checkbox
+      >
       <template #tip>
-          
         你的收货地址不支持同城送,
         <span @click="onClickEditAddress">修改地址</span>
       </template>
@@ -54,11 +83,13 @@
 </template>
 
 <script>
+import carImg from "../../assets/img/car.png";
 export default {
   data() {
     return {
       checked: false,
       value: 1,
+      carImg,
     };
   },
   methods: {
@@ -71,24 +102,24 @@ export default {
     },
     // 删除商品
     delGoodsClick(index) {
-      this.$store.commit('delGoodsItem',index)
-      console.log("删除",index);
+      this.$store.commit("delGoodsItem", index);
+      console.log("删除", index);
     },
     // 计步器事件
-    numChange(index,val) {
-        // setNum
-         this.$store.commit('setNum',{val,index})
-    //    console.log("几步器",{val,index});
+    numChange(index, val) {
+      // setNum
+      this.$store.commit("setNum", { val, index });
+      //    console.log("几步器",{val,index});
     },
     // 单个商品 复选框事件
-    checkChange(index,val) {
-        this.$store.commit('setCheck',{val,index})
-    //   console.log("更改是否选中",{val,index});
+    checkChange(index, val) {
+      this.$store.commit("setCheck", { val, index });
+      //   console.log("更改是否选中",{val,index});
     },
     // 全选 反选
     checkAll() {
-        this.$store.commit('setAllCheck')
-    //   console.log("全选");
+      this.$store.commit("setAllCheck");
+      //   console.log("全选");
     },
   },
 };
@@ -106,7 +137,7 @@ export default {
 .delete-button {
   height: 100%;
 }
-.van-submit-bar{
-    bottom: 50px;
+.van-submit-bar {
+  bottom: 50px;
 }
 </style>
