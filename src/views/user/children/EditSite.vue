@@ -46,7 +46,7 @@ export default {
       this.$notify({ type: "primary", message });
     },
     async onDelete({ id }) {
-      // askDelSite
+ 
       let thia = this;
       const { status, message } = await askDelSite(id);
       
@@ -57,7 +57,7 @@ export default {
     },
     onChangeDetail(val) {},
     changeArea() {
-      // console.log("改变地址");
+    
     },
   },
   created() {

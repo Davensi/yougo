@@ -38,10 +38,10 @@ export default {
       const newSite = {
         ...obj,
       };
-      console.log(this.$store.state.userInfo.id);
-      console.log(newSite);
+      // console.log(this.$store.state.userInfo.id);
+      // console.log(newSite);
       const { status, message } = await askAddSite(this.userId, newSite);
-
+  
       this.$notify({ type: "primary", message });
       this.$router.replace("/site");
     },

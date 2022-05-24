@@ -58,10 +58,10 @@ export default {
         } else {
           item.isDefault = false;
         };
-        // this.chosenAddressId = 
+       
         return item;
       });
-      // console.log(data);
+     
       this.list = data;
     },
   },
