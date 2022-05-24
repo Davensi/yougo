@@ -121,7 +121,7 @@ export default {
       ImagePreview({ images: this.img, startPosition: index });
     },
     onClickIcon() {
-      console.log("牛掰");
+ 
       this.show = true;
       this.showAddCartBtn = true;
     },
@@ -129,14 +129,7 @@ export default {
       const { goodsId, selectedNum } = skuObj;
       const { title, sell_price } = this.detali;
       const goodsSrc = this.img[0];
-      // console.log("添加购物车", {
-      //   goodsId,
-      //   selectedNum,
-      //   title,
-      //   sell_price,
-      //   goodsSrc,
-      // });
-
+      // 加入购物车
       this.$store.commit('addGoodsCar',{
         goodsId,selectedNum,
         title,sell_price,goodsSrc,
@@ -145,7 +138,8 @@ export default {
       this.show = false;
     },
     skuBuy(skuObj) {
-      console.log("购买", skuObj);
+      // DO。。。。
+      //  console.log('去结算');
       this.show = false;
     },
     buyBtnClick() {
